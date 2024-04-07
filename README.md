@@ -2,7 +2,14 @@
 Comparing the full-precision Query, Keys, and Values matrices with their 1-bit counterparts in a two-layer, attention-only transformer trained on a synthetic copying task.
 
 ## Induction Heads and Induction Scores:
--
+Induction heads are types of attention heads specialised in recognising patterns from previous instances and acting upon them in future predictions. They can identify and respond to previously encountered patterns through various mechanisms, one of the clearest form being hard copying. For example, given a sequence of tokens: g&icuwpxzohbcepeaikyfeejxaps&, when an induction head encounters the final token `&`, it searches for the token that appeared after the previous copy of this token, which is `i`, and copies it to predict as the next token.
+
+Induction Score represents the average attention weight each head assigns to the token following the previous instance of the current token.
+
+## Task:
+In our experiments, we constructed a synthetic copying task to assess the effectiveness of induction heads in hard copying. Our dataset largely follow the methodology outlined in [Daniel Y. Fu et al., 2022](https://arxiv.org/pdf/2212.14052.pdf). We generated random sequences from the alphabet, introducing a special token `&` at various starting points of the sequence. This special token is then repeated at the end of the sequence, and the task for the model is to predict the next token as the one following the previous occurrence of the special token.
+For more details check the `prepare_dataset.py`
+
 ## Experiments:
 We substituted the Query, Key, and Value linear layers with BitLinear layers, as outlined in [Hongyu Wang et al., 2023's BitNet](https://arxiv.org/pdf/2310.11453.pdf). Our aim was to understand the behavioural differences of induction heads in BitLinear layers in contrast to those in full-precision (FP) linear layers, across various configurations. To this end, we constructed a range of induction head circuits within two-layer, attention-only transformers, utilising every possible combination of the following:
 
