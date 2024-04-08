@@ -18,6 +18,7 @@ We substituted the Query, Key, and Value linear layers with BitLinear layers, as
 - norms=('pre_norm' 'post_norm' 'no_norm')
 - positions_encodings=('learnable' 'trigonometric' 'no_pos')
 
+## Results
 The heatmaps below display the average induction scores across all training samples for various combinations of embed sizes and num heads. The first two rows highlight the effects of positional encoding and their averages across different normalisation techniques (norms) and the training samples. The last two rows focus on the impact of norms, averaged across different positional techniques and the training samples.
 
 Note that this experiment was conducted once with a single seed, due to the high number of runs required. However, averaging across more than 5k training samples and various norms and positional techniques may reduce the noise in the reported results. We also provide heatmaps for eval set of 500 samples in the `assests folder`.
