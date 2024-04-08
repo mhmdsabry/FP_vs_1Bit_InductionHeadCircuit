@@ -18,6 +18,32 @@ We substituted the Query, Key, and Value linear layers with BitLinear layers, as
 - norms=('pre_norm' 'post_norm' 'no_norm')
 - positions_encodings=('learnable' 'trigonometric' 'no_pos')
 
+The heatmaps below display the average induction scores across all training samples for various combinations of embed sizes and num heads. The first two rows highlight the effects of positional encoding and their averages across different normalisation techniques (norms) and the training samples. The last two rows focus on the impact of norms, averaged across different positional techniques and the training samples.
+
+Note that this experiment was conducted once with a single seed, due to the high number of runs required. However, averaging across more than 5k training samples and various norms and positional techniques may reduce the noise in the reported results. We also provide heatmaps for eval set of 500 samples in the `assests folder`.
+
+<div style="text-align:center;">
+<tr>
+<td><img src="./assets/train_FP_trigonometric_average_effect.png" alt="FP trigonometric" width="33%"></td>
+<td><img src="./assets/train_FP_learnable_average_effect.png" alt="FP learnable" width="33%"></td>
+<td><img src="./assets/train_FP_no_pos_average_effect.png" alt="FP no pos" width="33%"></td>
+</tr>
+<tr>
+<td><img src="./assets/train_1Bit_trigonometric_average_effect.png" alt="1Bit trigonometric" width="33%"></td>
+<td><img src="./assets/train_1Bit_learnable_average_effect.png" alt="1Bit learnable" width="33%"></td>
+<td><img src="./assets/train_1Bit_no_pos_average_effect.png" alt="1Bit no pos" width="33%"></td>
+</tr>
+<tr>
+<td><img src="./assets/train_FP_pre_norm_average_effect.png" alt="FP pre norm" width="33%"></td>
+<td><img src="./assets/train_FP_post_norm_average_effect.png" alt="FP post norm" width="33%"></td>
+<td><img src="./assets/train_FP_no_norm_average_effect.png" alt="FP no norm" width="33%"></td>
+</tr>
+<tr>
+<td><img src="./assets/train_1Bit_pre_norm_average_effect.png" alt="1Bit pre norm" width="33%"></td>
+<td><img src="./assets/train_1Bit_post_norm_average_effect.png" alt="1Bit post norm" width="33%"></td>
+<td><img src="./assets/train_1Bit_no_norm_average_effect.png" alt="1Bit no norm" width="33%"></td>
+</tr>
+</div>
 
 ## code:
 
